@@ -1,10 +1,11 @@
-# fluentd configuration file for ingesting Unifi server logs - /var/logs/unifi/server.log
+# fluentd configuration file for ingesting Unifi server logs in /var/logs/unifi/server.log 
+# This allows Google Logging to ingest events from Unifi devices such as new connections, disconnections & errors 
 # 
-# This sample file is for documentation purposes - if installing manually, this should be placed in the fluentd configuration directory - /etc/google-fluentd/config.d
+# This sample file is for documentation purposes
+# If installing manually, this file should be placed in the fluentd configuration directory - /etc/google-fluentd/config.d when deploying Unifi Controller on Google Cloud
 # Otherwise, the accompanying startup script, startup.sh, will check if /etc/google-fluentd/config.d/unifi-server.conf exists
 # If absent, the startup script will create a clean version, without comments 
 #
-# This allows Google Logging to ingest events from Unifi devices such as new connections, disconnections & errors 
 # For details see https://docs.fluentd.org/configuration/config-file 
 # For info on how fluentd works with custom formats, see https://docs.fluentd.org/configuration/format-section 
 # For info on parsing the time field see - Time.strptime at https://docs.ruby-lang.org/en/2.4.0/Time.html#method-c-strptime 
