@@ -1,17 +1,24 @@
 #! /bin/sh
 #
-# Version 1.3.4.1 gtbjr - Forked from original to add stackdriver logging.  Now deploying from my own bucket gs://gbray-unifi-scripts/startup.sh
+# Version 1.3.4.1 gtbjr - Forked from Petri Riihikallio's original to add stackdriver logging.  
+# Shifted to deploying from a private bucket gs://gbray-unifi-scripts/startup.sh to preserve my edits
 # 
-# Migrating to github repository for sharing
+# Added github repository for public sharing & collaboration
 # https://github.com/gbrayjr/unifi-controller-gcp.git
 #
 # This is a startup script for UniFi Controller on Debian based Google Compute Engine instances.
 # For instructions and how-to:  https://metis.fi/en/2018/02/unifi-on-gcp/
 # For comments and code walkthrough:  https://metis.fi/en/2018/02/gcp-unifi-code/
 #
-# You may use this as you see fit as long as I am credited for my work.
-# (c) 2018 Petri Riihikallio Metis Oy
+# This is building on Petri Riihallio's excellent work to automate deployment of Unfi Controllers to Google Cloud
+# Many thanks...
 #
+# His license:
+#
+# "You may use this as you see fit as long as I am credited for my work."
+# "(c) 2018 Petri Riihikallio Metis Oy"
+#
+# Ditto.
 #
 ###########################################################
 #
