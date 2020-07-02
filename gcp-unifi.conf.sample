@@ -1,6 +1,10 @@
-# fluentd configuration file for ingesting Unifi server logs 
+# fluentd configuration file for ingesting Unifi server logs - /var/logs/unifi/server.log
+# 
+# This sample file is for documentation purposes - if installing manually, this should be placed in the fluentd configuration directory - /etc/google-fluentd/config.d
+# Otherwise, the accompanying startup script, startup.sh, will check if /etc/google-fluentd/config.d/unifi-server.conf exists
+# If absent, the startup script will create a clean version, without comments 
 #
-# This captures events such as new connections, disconnections & errors, allowing logs to be viewed in Google Cloud logging. 
+# This allows Google Logging to ingest events from Unifi devices such as new connections, disconnections & errors 
 # For details see https://docs.fluentd.org/configuration/config-file 
 # For info on how fluentd works with custom formats, see https://docs.fluentd.org/configuration/format-section 
 # For info on parsing the time field see - Time.strptime at https://docs.ruby-lang.org/en/2.4.0/Time.html#method-c-strptime 
@@ -14,12 +18,12 @@
 </source>
 # All messages from this log are tagged as "unifi-server", making them available to GCP Logging filters
 # What do the "format" and "time_format" lines do?
-# Unifi server logs wrap the time in [] bracktes.  The first block of the format line defines all non-bracket characters after the first bracket as the "time".  
+# Unifi server logs wrap the timestamp in [] bracktes.  The first block of the format line defines all non-bracket characters after the first bracket as "time".  
 # The second block expects a space, then defines anything within <> brackets as an "operation"
 # The third block expects a space, then defines subsequent non-space characters as the "severity""
 # The fourth block expects one or more spaces, then defines the non-space characters as "labels"
 # The fifth block begins after a hyphen and space, then defines subsequent non-line-break characters as the "message""
+# The time format parses out the time as displayed by unifi e.g., [2020-07-02T09:49:53,636]
 # These field names were chosen because they are "special fields in structured payloads" per GCP documentation
-# The time format parses out the time as displayed by unifi
 # See https://cloud.google.com/logging/docs/agent/configuration#special-fields for additional details
 # God I hate regex.  God I love regex. 
